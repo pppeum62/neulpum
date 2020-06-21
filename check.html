@@ -151,24 +151,41 @@
             }
 
             var row = null;
+            var rowcnt = 0;
             row = tblCalendar.insertRow();
             var cnt = 0;
 
             // 1일이 시작되는 칸을 맞추어 줌
-            for (i=0; i<nMonth.getDay(); i++) {
+            for (i = 0; i < nMonth.getDay(); i++) {
                 cell = row.insertCell();
                 cnt = cnt + 1;
             }
             
-            for (i=1; i<=lastDate.getDate(); i++) { 
+            for (i = 1; i <= lastDate.getDate(); i++) { 
                 cell = row.insertCell();
                 cell.innerHTML = i;
                 cnt = cnt + 1;
 
-                if (cnt % 7 == 0)// 1주일이 7일 이므로
+                if (cnt % 7 == 0) { // 1주일이 7일 이므로
                     row = realcalendar.insertRow();// 줄 추가
+                    
+                    rowcnt++;
+                }
             }
-         
+
+            console.log(cnt);
+            console.log(rowcnt);
+            console.log(cnt % 7);
+
+            var num = cnt % 7;
+
+            if(num != 0) {
+                for(var i = 0; i < 7 - num; i++) {
+                    cell = row.insertCell();
+                    cell.innerHTML = i + 1;
+                }
+            }
+            
         }
         
         </script>
