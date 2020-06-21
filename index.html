@@ -15,6 +15,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <style>
+        body {
+            padding-bottom: 60px;
+        }
+
         /* header */
         .header {
             padding: 10px;
@@ -87,12 +91,14 @@
 
         /* menu */
         .menu-area {
+            background-color: #fafafa;
             width: 100vw;
             padding: 10px;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            position: absolute;
+            position: fixed;
+            /*position: absolute;*/
             bottom: 0;
             border-top: 1px solid #bcbcbc;
             border-top-right-radius: 10px;
