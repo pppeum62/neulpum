@@ -166,7 +166,7 @@
             </div>
         </div>
         <div class="msg">
-            할 일 4개 중 3개를 완료하였습니다
+            할 일 <span class="tasknum">0</span>개 중 <span class="compnum">0</span>개를 완료하였습니다
         </div>
 
         <!--
@@ -210,15 +210,31 @@
         </div>
 
         <script>
+            var taskcnt = 0;
+            var comp = 0;
             var cnt = 0;
 
             $(".txtb").on("keyup", function(e) {
                 // 13은 엔터를 의미
                 if(e.keyCode == 13 && $(".txtb").val() != "") {
+                    taskcnt++;      // 할 일 개수 증가
+                    console.log($(".tasknum").text());
+                    document.querySelector(".tasknum").textContent = taskcnt;
+
                     var task = $("<div class='task'></div>");
                     var cont = $("<span class='content'></span>");
+
                     cont.append($(".txtb").val());
+
+                    console.log(comp / taskcnt);
+                    setGaugeValue(gaugeElement, comp / taskcnt);
+
                     var check = $("<img src='./image/checked.png' class='check-icon icon-img'><img src='./image/unchecked.png' class='uncheck-icon icon-img'>").click(function() {
+                        comp++;     // 완료한 할 일 개수 증가
+                        document.querySelector(".compnum").textContent = comp;
+
+                        setGaugeValue(gaugeElement, comp / taskcnt);
+
                         var p = $(this).parent();
                         p.fadeOut(function() {
                             p.remove();
@@ -233,16 +249,6 @@
                             
                             cnt++;
                         });
-                    });
-
-                    var c = $("<i class='fas fa-check'></i>").click(function() {
-                        var p = $(this).parent();
-                        p.fadeOut(function() {
-                            $(".comp").append(p);
-                            p.fadeIn();
-                        });
-
-                        $(this).remove();
                     });
 
                     task.append(check, cont);
@@ -263,7 +269,7 @@
 
                 // gauge.querySelector(".gauge_fill").style.transform = 'rotate(' + (value / 2) + 'turn)';
                 // gauge.querySelector(".gauge_fill").style.width = value * 100 + '%';
-                gauge.querySelector(".gauge_cover").textContent = value * 100 + '%';
+                gauge.querySelector(".gauge_cover").textContent = parseInt(value * 100) + '%';
             
                 $(document).ready(function() {
                     $('.gauge_fill').animate({
@@ -272,7 +278,7 @@
                 });
             }
 
-            setGaugeValue(gaugeElement, 0.75);
+            setGaugeValue(gaugeElement, 0);
         </script>
     </body>
 </html>
