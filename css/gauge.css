@@ -81,7 +81,7 @@
 }
 
 .gauge_fill {
-    width: 75%;
+    width: 0%;
     animation: gauge 2s;
 }
 
@@ -90,6 +90,6 @@
         width: 0%;
     }
     100% {
-        width: 75%;
+        width: 0%;
     }
 }
