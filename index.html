@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>늘품</title>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/gauge.css">
+        <link rel="stylesheet" href="./css/todo.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <style>
+        /* header */
+        .header {
+            padding: 10px;
+            background-color: #ffb900;
+        }
+        
+        .header h1 {
+            text-align: center;
+        }
+
+
+        /* date */
+        .date {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .date div {
+            text-align: center;
+            margin: 2vw;
+        }
+
+        .date .weekday {
+            color: #bcbcbc;
+            font-weight: lighter;
+        }
+
+        .date .today .weekday, .date .today .day {
+            color: #ffb900;
+        }
+
+        .date-info {
+            position: relative;
+            margin: 10px 0;
+            font-weight: lighter;
+        }
+
+        .date-line {
+            width: 100vw;
+            background-color: #2b2b2b;
+            border: none;
+            height: 0.5px;
+            margin: 0;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+        }
+
+        .date-text {
+            width: 28vw;
+            text-align: center;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: #fafafa;
+            transform: translate(-50%, -50%);
+        }
+
+
+        /* message */
+        .msg {
+            text-align: center;
+            font-weight: lighter;
+            margin-top: 40px;
+        }
+
+
+        /* menu */
+        .menu-area {
+            width: 100vw;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            border-top: 1px solid #bcbcbc;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+        .menu-area div {
+            width: 30px;
+        }
+
+        .menu-area div img {
+            width: 100%;
+            cursor: pointer;
+        }
+    </style>
+    <body>
+        <div class="header">
+            <h1>오늘의 할 일 리스트</h1>
+        </div>
+        <div class="date">
+            <div>
+                <div class="weekday">월</div>
+                <div class="day">8</div>
+            </div>
+
+            <div>
+                <div class="weekday">화</div>
+                <div class="day">9</div>
+            </div>
+
+            <div>
+                <div class="weekday">수</div>
+                <div class="day">10</div>
+            </div>
+
+            <div>
+                <div class="weekday">목</div>
+                <div class="day">11</div>
+            </div>
+
+            <div>
+                <div class="weekday">금</div>
+                <div class="day">12</div>
+            </div>
+
+            <div>
+                <div class="weekday">토</div>
+                <div class="day">13</div>
+            </div>
+
+            <div class="today">
+                <div class="weekday">일</div>
+                <div class="day">14</div>
+            </div>
+
+            <div>
+                <div class="weekday">월</div>
+                <div class="day">15</div>
+            </div>
+        </div>
+        <div class="date-info">
+            <hr class="date-line">
+            <div class="date-text">
+                6월 14일 일요일
+            </div>
+        </div>
+        <div class="msg">
+            할 일 4개 중 3개를 완료하였습니다
+        </div>
+
+        <!--
+        <div class="gauge">
+            <div class="gauge_body">
+                <div class="gauge_fill"></div>
+                <div class="gauge_cover"></div>
+            </div>
+        </div>
+        -->
+
+        <div class="gauge">
+            <li>
+                <span class="bar">
+                    <span class="gauge_fill">
+                        <span class="gauge_cover">75%</span>
+                    </span>
+                </span>
+            </li>
+        </div>
+
+        <div class="todo-area">
+            <input type="text" class="txtb" placeholder="새로운 할 일 추가">
+            <div class="notcomp"></div>
+            <div class="comp"></div>
+        </div>
+
+        <div class="menu-area">
+            <div class="main">
+                <a href="index.html"><img src="./image/tab_checked.png"></a>
+            </div>
+            <div class="list">
+                <a href="#"><img src="./image/tab_unlist.png"></a>
+            </div>
+            <div class="data">
+                <a href="#"><img src="./image/tab_undata.png"></a>
+            </div>
+            <div class="setting">
+                <a href="#"><img src="./image/tab_unsetting.png"></a>
+            </div>
+        </div>
+
+        <script>
+            var cnt = 0;
+
+            $(".txtb").on("keyup", function(e) {
+                // 13은 엔터를 의미
+                if(e.keyCode == 13 && $(".txtb").val() != "") {
+                    var task = $("<div class='task'></div>");
+                    var cont = $("<span class='content'></span>");
+                    cont.append($(".txtb").val());
+                    var check = $("<img src='./image/checked.png' class='check-icon icon-img'><img src='./image/unchecked.png' class='uncheck-icon icon-img'>").click(function() {
+                        var p = $(this).parent();
+                        p.fadeOut(function() {
+                            p.remove();
+
+                            $(".comp").append(p);
+                            p.fadeIn();
+
+                            p.addClass('box' + cnt);
+
+                            $('.box' + cnt +' .check-icon').css('display', 'none');
+                            $('.box' + cnt +' .uncheck-icon').css('display', 'inline');
+                            
+                            cnt++;
+                        });
+                    });
+
+                    var c = $("<i class='fas fa-check'></i>").click(function() {
+                        var p = $(this).parent();
+                        p.fadeOut(function() {
+                            $(".comp").append(p);
+                            p.fadeIn();
+                        });
+
+                        $(this).remove();
+                    });
+
+                    task.append(check, cont);
+
+                    $(".notcomp").append(task);
+                    $(".txtb").val("");
+                }
+            });
+        </script>
+
+        <script>
+            const gaugeElement = document.querySelector(".gauge");
+
+            function setGaugeValue(gauge, value) {
+                if(value < 0 || value > 1) {
+                    return;
+                }
+
+                // gauge.querySelector(".gauge_fill").style.transform = 'rotate(' + (value / 2) + 'turn)';
+                // gauge.querySelector(".gauge_fill").style.width = value * 100 + '%';
+                gauge.querySelector(".gauge_cover").textContent = value * 100 + '%';
+            
+                $(document).ready(function() {
+                    $('.gauge_fill').animate({
+                        width: value * 100 + '%'
+                    }, 1000)
+                });
+            }
+
+            setGaugeValue(gaugeElement, 0.75);
+        </script>
+    </body>
+</html>
