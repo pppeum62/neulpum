@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>늘품</title>
+    <style type="text/css">
+        body {
+            font-family: 나눔스퀘어;
+            padding: 0px;
+            margin: 0px;
+        }
+        td {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            font-size: 16px;
+            border:1px solid #FFB900;
+            border-radius:50px;
+            padding: 3px;
+            border-spacing: 30px;
+        }    
+
+        #calendarYM {
+            border: none;
+            color: black;
+        } 
+        #sun {
+            border: none;
+            color: red;
+        }
+        #weekday {
+            border: none;
+        }      
+ 
+        #title {
+            text-align: center;
+            background-color: #FFB900;
+            padding: 20px;
+        }
+        #calendar {
+            padding: 30px;
+        }
+        #day_check {
+            text-align: center;
+            font-size: 50px;
+            color: #FFB900;
+            font-weight: bold;
+        }
+        #label {
+            font-size: 20px;
+            color: #2B2B2B;
+        }
+        #check1 {
+            position: absolute;
+            padding: 10px;
+            left: 50px;
+        }
+
+        #check2 {
+            position: absolute;
+            padding: 10px;
+            left: 200px;
+        }
+
+        #check3 {
+            position: absolute;
+            padding: 20px;
+            left: 60px;
+            top: 500px;
+        }
+
+        #check4 {
+            position:absolute;
+            padding: 20px;
+            left: 210px;
+            top: 500px;
+        }
+
+    </style>
+    <script language="javascript" type="text/javascript">
+        var today = new Date(); // 오늘 날짜//지신의 컴퓨터를 기준으로
+        //today 에 Date객체를 넣어줌 //ex)5일  
+        function prevCalendar() {
+         today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+         buildCalendar(); // 현재 달 
+        }
+         
+        function nextCalendar() {
+         today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+         buildCalendar();
+        }
+         
+        function buildCalendar() {// 현재 달fur
+         var nMonth = new Date(today.getFullYear(), today.getMonth(), 1);  // 이번 달의 첫째 날
+         var lastDate = new Date(today.getFullYear(), today.getMonth()+1, 0); // 이번 달의 마지막 날
+         var tblCalendar = document.getElementById("realcalendar");     // 테이블 달력을 만들 테이블
+         var tblCalendarYM = document.getElementById("calendarYM");    // yyyy년 m월 출력할 곳
+         tblCalendarYM.innerHTML = today.getFullYear() + "년 " + (today.getMonth() + 1) + "월";  // yyyy년 m월 출력
+        // 기존 테이블에 뿌려진 줄, 칸 삭제
+         
+         while (tblCalendar.rows.length > 2) {
+          tblCalendar.deleteRow(tblCalendar.rows.length - 1);
+         }
+         var row = null;
+         row = tblCalendar.insertRow();
+         var cnt = 0;
+        // 1일이 시작되는 칸을 맞추어 줌
+         for (i=0; i<nMonth.getDay(); i++) {
+          cell = row.insertCell();
+          cnt = cnt + 1;
+         }
+         
+         for (i=1; i<=lastDate.getDate(); i++) { 
+          cell = row.insertCell();
+          cell.innerHTML = i;
+          cnt = cnt + 1;
+          if (cnt%7 == 0)// 1주일이 7일 이므로
+           row = realcalendar.insertRow();// 줄 추가
+         }
+         
+        }
+         
+        </script>
+</head>
+<body>
+    <div id="title">
+        한달 통계 확인하기
+    </div>
+    <div id="calendar">
+        <table id="realcalendar" boarder="3" align="center">
+            <tr>
+                <td><label onclick="prevCalendar()"><</label></td>
+                   <td colspan="5" align="center" id="calendarYM">yyyy년 m월</td>
+                   <td><label onclick="nextCalendar()">>
+                   </label></td>
+               </tr>
+               <tr>
+                <td id="sun" align="center">일</td>
+                <td id="weekday" align="center">월</td>
+                <td id="weekday" align="center">화</td>
+                <td id="weekday" align="center">수</td>
+                <td id="weekday" align="center">목</td>
+                <td id="weekday" align="center">금</td>
+                <td id="weekday" align="center">토</td>
+              </tr>
+        </table>
+        <script language="javascript" type="text/javascript">
+            buildCalendar();
+        </script>
+    </div>
+    <div id="check1">
+        <div id="day_check">10<label id="label"> 일</label></div>
+        현재 연속 달성
+    </div>
+    <div id="check2">
+        <div id="day_check">10<label id="label"> 일</label></div>
+        최고 연속 달성도
+    </div>
+    <div id="check3">
+        <div id="day_check">72<label id="label"> 개</label></div>
+        완료한 일
+    </div>
+    <div id="check4">
+        <div id="day_check">82<label id="label"> %</label></div>
+        평균 달성도
+    </div>
+</body>
+</html>
