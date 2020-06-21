@@ -4,31 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>늘품</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        
+    <link rel="stylesheet" href="./css/reset.css">
+
     <style type="text/css">
-        body {
-            font-family: 나눔스퀘어;
-            padding: 0px;
-            margin: 0px;
+
+        .header {
+            padding: 10px;
+            background-color: #ffb900;
         }
+
+        .header h1 {
+            text-align: center;
+        }
+        
         td {
             width: 30px;
             height: 30px;
             text-align: center;
-            font-size: 16px;
-            border:1px solid #FFB900;
+            font-size: 14px;
+            border:1px solid #2b2b2b;
             border-radius:50px;
             padding: 3px;
             border-spacing: 30px;
-        }    
+        }
+
+        tr:first-child > td {
+            color: #2b2b2b;
+        }
+
+        td:nth-child(1) {
+            color: red;
+        }
+
+        .calbtn {
+            border: none;
+        }
 
         #calendarYM {
             border: none;
             color: black;
-        } 
-        #sun {
-            border: none;
-            color: red;
         }
+
         #weekday {
             border: none;
         }      
@@ -38,132 +57,145 @@
             background-color: #FFB900;
             padding: 20px;
         }
+
         #calendar {
-            padding: 30px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
         #day_check {
             text-align: center;
-            font-size: 50px;
+            font-size: 40px;
             color: #FFB900;
-            font-weight: bold;
+            font-weight: 900;
         }
+
         #label {
             font-size: 20px;
-            color: #2B2B2B;
-        }
-        #check1 {
-            position: absolute;
-            padding: 10px;
-            left: 50px;
+            color: #2b2b2b;
+            font-weight: normal;
         }
 
-        #check2 {
-            position: absolute;
-            padding: 10px;
-            left: 200px;
+        .check-area {
+            text-align: center;
         }
 
-        #check3 {
-            position: absolute;
-            padding: 20px;
-            left: 60px;
-            top: 500px;
+        .content-title {
+            text-align: center;
+            font-size: 14px;
         }
 
-        #check4 {
-            position:absolute;
-            padding: 20px;
-            left: 210px;
-            top: 500px;
+        #check1, #check2 {
+            margin-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        #check1, #check2, #check3, #check4 {
+            display: inline-block;
+            width: 42vw;
         }
 
     </style>
     <script language="javascript" type="text/javascript">
-        var today = new Date(); // 오늘 날짜//지신의 컴퓨터를 기준으로
-        //today 에 Date객체를 넣어줌 //ex)5일  
+        var today = new Date(); // 오늘 날짜
+        //자신의 컴퓨터를 기준으로
+        //today 에 Date객체를 넣어줌
+
         function prevCalendar() {
-         today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
-         buildCalendar(); // 현재 달 
+            today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+            buildCalendar(); // 현재 달 
         }
          
         function nextCalendar() {
-         today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
-         buildCalendar();
+            today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+            buildCalendar();
         }
          
-        function buildCalendar() {// 현재 달fur
-         var nMonth = new Date(today.getFullYear(), today.getMonth(), 1);  // 이번 달의 첫째 날
-         var lastDate = new Date(today.getFullYear(), today.getMonth()+1, 0); // 이번 달의 마지막 날
-         var tblCalendar = document.getElementById("realcalendar");     // 테이블 달력을 만들 테이블
-         var tblCalendarYM = document.getElementById("calendarYM");    // yyyy년 m월 출력할 곳
-         tblCalendarYM.innerHTML = today.getFullYear() + "년 " + (today.getMonth() + 1) + "월";  // yyyy년 m월 출력
-        // 기존 테이블에 뿌려진 줄, 칸 삭제
-         
-         while (tblCalendar.rows.length > 2) {
-          tblCalendar.deleteRow(tblCalendar.rows.length - 1);
-         }
-         var row = null;
-         row = tblCalendar.insertRow();
-         var cnt = 0;
-        // 1일이 시작되는 칸을 맞추어 줌
-         for (i=0; i<nMonth.getDay(); i++) {
-          cell = row.insertCell();
-          cnt = cnt + 1;
-         }
-         
-         for (i=1; i<=lastDate.getDate(); i++) { 
-          cell = row.insertCell();
-          cell.innerHTML = i;
-          cnt = cnt + 1;
-          if (cnt%7 == 0)// 1주일이 7일 이므로
-           row = realcalendar.insertRow();// 줄 추가
-         }
+        function buildCalendar() {// 현재 달
+            var nMonth = new Date(today.getFullYear(), today.getMonth(), 1);  // 이번 달의 첫째 날
+            var lastDate = new Date(today.getFullYear(), today.getMonth()+1, 0); // 이번 달의 마지막 날
+            var tblCalendar = document.getElementById("realcalendar");     // 테이블 달력을 만들 테이블
+            var tblCalendarYM = document.getElementById("calendarYM");    // yyyy년 m월 출력할 곳
+            tblCalendarYM.innerHTML = today.getFullYear() + "년 " + (today.getMonth() + 1) + "월";  // yyyy년 m월 출력
+            // 기존 테이블에 뿌려진 줄, 칸 삭제
+            
+            while (tblCalendar.rows.length > 2) {
+                tblCalendar.deleteRow(tblCalendar.rows.length - 1);
+            }
+
+            var row = null;
+            row = tblCalendar.insertRow();
+            var cnt = 0;
+
+            // 1일이 시작되는 칸을 맞추어 줌
+            for (i=0; i<nMonth.getDay(); i++) {
+                cell = row.insertCell();
+                cnt = cnt + 1;
+            }
+            
+            for (i=1; i<=lastDate.getDate(); i++) { 
+                cell = row.insertCell();
+                cell.innerHTML = i;
+                cnt = cnt + 1;
+
+                if (cnt % 7 == 0)// 1주일이 7일 이므로
+                    row = realcalendar.insertRow();// 줄 추가
+            }
          
         }
-         
+        
         </script>
 </head>
 <body>
-    <div id="title">
-        한달 통계 확인하기
+    <div class="header">
+        <h1>한 달 통계 확인하기</h1>
     </div>
     <div id="calendar">
         <table id="realcalendar" boarder="3" align="center">
             <tr>
-                <td><label onclick="prevCalendar()"><</label></td>
-                   <td colspan="5" align="center" id="calendarYM">yyyy년 m월</td>
-                   <td><label onclick="nextCalendar()">>
-                   </label></td>
-               </tr>
-               <tr>
-                <td id="sun" align="center">일</td>
+                <td class="calbtn">
+                    <label onclick="prevCalendar()"><</label>
+                </td>
+                <td colspan="5" align="center" id="calendarYM">yyyy년 m월</td>
+                <td class="calbtn">
+                    <label onclick="nextCalendar()">></label>
+                </td>
+            </tr>
+            <tr>
+                <td id="weekday" align="center">일</td>
                 <td id="weekday" align="center">월</td>
                 <td id="weekday" align="center">화</td>
                 <td id="weekday" align="center">수</td>
                 <td id="weekday" align="center">목</td>
                 <td id="weekday" align="center">금</td>
                 <td id="weekday" align="center">토</td>
-              </tr>
+            </tr>
         </table>
         <script language="javascript" type="text/javascript">
             buildCalendar();
         </script>
     </div>
-    <div id="check1">
-        <div id="day_check">10<label id="label"> 일</label></div>
-        현재 연속 달성
+
+    <div class="check-area">
+        <div id="check1">
+            <div id="day_check">10<label id="label"> 일</label></div>
+            <div class="content-title">현재 연속 달성</div>
+        </div>
+        <div id="check2">
+            <div id="day_check">10<label id="label"> 일</label></div>
+            <div class="content-title">최고 연속 달성</div>
+        </div>
+        <div id="check3">
+            <div id="day_check">72<label id="label"> 개</label></div>
+            <div class="content-title">완료한 할 일</div>
+        </div>
+        <div id="check4">
+            <div id="day_check">82<label id="label"> %</label></div>
+            <div class="content-title">평균 달성도</div>
+        </div>
     </div>
-    <div id="check2">
-        <div id="day_check">10<label id="label"> 일</label></div>
-        최고 연속 달성도
-    </div>
-    <div id="check3">
-        <div id="day_check">72<label id="label"> 개</label></div>
-        완료한 일
-    </div>
-    <div id="check4">
-        <div id="day_check">82<label id="label"> %</label></div>
-        평균 달성도
-    </div>
+    
 </body>
 </html>
