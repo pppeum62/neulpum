@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,6 +95,31 @@
         #check1, #check2, #check3, #check4 {
             display: inline-block;
             width: 42vw;
+        }
+
+        /* menu */
+        .menu-area {
+            background-color: #fafafa;
+            width: 100vw;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            /*position: absolute;*/
+            bottom: 0;
+            border-top: 1px solid #bcbcbc;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+        .menu-area div {
+            width: 30px;
+        }
+
+        .menu-area div img {
+            width: 100%;
+            cursor: pointer;
         }
 
     </style>
@@ -194,6 +219,21 @@
         <div id="check4">
             <div id="day_check">82<label id="label"> %</label></div>
             <div class="content-title">평균 달성도</div>
+        </div>
+    </div>
+
+    <div class="menu-area">
+        <div class="main">
+            <a href="index.html"><img src="./image/tab_unchecked.png"></a>
+        </div>
+        <div class="list">
+            <a href="#"><img src="./image/tab_unlist.png"></a>
+        </div>
+        <div class="data">
+            <a href="./check.html"><img src="./image/tab_data.png"></a>
+        </div>
+        <div class="setting">
+            <a href="#"><img src="./image/tab_unsetting.png"></a>
         </div>
     </div>
     
