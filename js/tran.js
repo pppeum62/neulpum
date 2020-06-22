@@ -1,6 +1,7 @@
+/*
 jQuery(function($) {
     $("body").css("display", "none");
-    $("body").fadeIn(300);
+    $("body").fadeIn(800);
     $("a.tran").click(function(event) {
       event.preventDefault();
       hrefLocation = this.href;
@@ -10,4 +11,9 @@ jQuery(function($) {
     function redPage() {
       window.location = hrefLocation;
     }
+});
+*/
+
+$(document).ready(function() {
+    $("body").delay(50).animate({ opacity: 1 }, 800);
 });
