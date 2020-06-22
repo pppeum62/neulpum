@@ -213,55 +213,7 @@
             </div>
         </div>
 
-        <script>
-            var taskcnt = 0;
-            var comp = 0;
-            var cnt = 0;
-
-            $(".txtb").on("keyup", function(e) {
-                // 13은 엔터를 의미
-                if(e.keyCode == 13 && $(".txtb").val() != "") {
-                    taskcnt++;      // 할 일 개수 증가
-                    console.log($(".tasknum").text());
-                    document.querySelector(".tasknum").textContent = taskcnt;
-
-                    var task = $("<div class='task'></div>");
-                    var cont = $("<span class='content'></span>");
-
-                    cont.append($(".txtb").val());
-
-                    console.log(comp / taskcnt);
-                    setGaugeValue(gaugeElement, comp / taskcnt);
-
-                    var check = $("<img src='./image/checked.png' class='check-icon icon-img'><img src='./image/unchecked.png' class='uncheck-icon icon-img'>").click(function() {
-                        comp++;     // 완료한 할 일 개수 증가
-                        document.querySelector(".compnum").textContent = comp;
-
-                        setGaugeValue(gaugeElement, comp / taskcnt);
-
-                        var p = $(this).parent();
-                        p.fadeOut(function() {
-                            p.remove();
-
-                            $(".comp").append(p);
-                            p.fadeIn();
-
-                            p.addClass('box' + cnt);
-
-                            $('.box' + cnt +' .check-icon').css('display', 'none');
-                            $('.box' + cnt +' .uncheck-icon').css('display', 'inline');
-                            
-                            cnt++;
-                        });
-                    });
-
-                    task.append(check, cont);
-
-                    $(".notcomp").append(task);
-                    $(".txtb").val("");
-                }
-            });
-        </script>
+        <script src="./js/check.js"></script>
 
         <script>
             const gaugeElement = document.querySelector(".gauge");
