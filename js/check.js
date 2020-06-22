@@ -23,7 +23,6 @@ $(".txtb").on("keyup", function(e) {
         var check = img.click(function() {
             
             var checked = $(this).parent().children(".chk");
-            console.log(checked);
 
             if(!checked.prop('checked')) {
                 checked.prop('checked', true);
@@ -36,7 +35,7 @@ $(".txtb").on("keyup", function(e) {
             setGaugeValue(gaugeElement, comp / taskcnt);
 
             var p = $(this).parent();
-            console.log(p);
+
             p.fadeOut(function() {
                 p.remove();
 
@@ -85,8 +84,6 @@ $(document).on("click", "#checked-icon", function(e) {
 
     checked.prop('checked', true);
     comp++;     // 완료한 할 일 개수 증가
-
-    console.log("ㅇㅇ");
 
     p.children('.check-icon').css('display', 'none');
     p.children('.uncheck-icon').css('display', 'inline');
