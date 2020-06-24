@@ -27,11 +27,25 @@
             width: 30px;
             height: 30px;
             text-align: center;
+        }
+
+        .datecont {
+            width: 30px;
+            height: 30px;
+            text-align: center;
             font-size: 14px;
             border:1px solid #2b2b2b;
             border-radius:50px;
+            margin: 3px;
             padding: 3px;
             border-spacing: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nextmon {
+            color: #bcbcbc;
         }
 
         tr:first-child > td {
@@ -167,7 +181,8 @@
             
             for (i = 1; i <= lastDate.getDate(); i++) { 
                 cell = row.insertCell();
-                cell.innerHTML = i;
+                cell.innerHTML = '<div class="datecont">' + i + '</div>';
+
                 cnt = cnt + 1;
 
                 if (cnt % 7 == 0) { // 1주일이 7일 이므로
@@ -186,7 +201,7 @@
             if(num != 0) {
                 for(var i = 0; i < 7 - num; i++) {
                     cell = row.insertCell();
-                    cell.innerHTML = i + 1;
+                    cell.innerHTML = '<div class="datecont nextmon">' + (i + 1) + '</div>';
                 }
             }
             
@@ -202,7 +217,7 @@
         <h1>한 달 통계 확인하기</h1>
     </div>
     <div id="calendar">
-        <table id="realcalendar" boarder="3" align="center">
+        <table id="realcalendar" class="cal" boarder="3" align="center">
             <tr>
                 <td class="calbtn">
                     <label onclick="prevCalendar()"><</label>
