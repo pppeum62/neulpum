@@ -11,6 +11,7 @@
 
     <style type="text/css">
         body {
+            padding-bottom: 60px;
             opacity: 0;
         }
 
@@ -42,6 +43,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .datecont span {
+            z-index: 1;
         }
 
         .nextmon {
@@ -139,6 +146,14 @@
             cursor: pointer;
         }
 
+        .percent {
+            width: 100%;
+            height: 100%;
+            background: #ffb900;
+            position: absolute;
+            bottom: 0;
+        }
+
     </style>
 
     <script language="javascript" type="text/javascript">
@@ -176,12 +191,13 @@
             // 1일이 시작되는 칸을 맞추어 줌
             for (i = 0; i < nMonth.getDay(); i++) {
                 cell = row.insertCell();
+                cell.innerHTML = '<div class="datecont"></div>';
                 cnt = cnt + 1;
             }
             
             for (i = 1; i <= lastDate.getDate(); i++) { 
                 cell = row.insertCell();
-                cell.innerHTML = '<div class="datecont">' + i + '</div>';
+                cell.innerHTML = '<div class="datecont"><span>' + i + '</span><div class="percent"></div></div>';
 
                 cnt = cnt + 1;
 
