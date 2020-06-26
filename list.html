@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>늘품</title>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/todo.css">
+        <link rel="stylesheet" href="./css/list.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./js/tran.js"></script>
+    </head>
+    <body>
+        <div class="background-area"></div>
+
+        <div class="add-area">
+            <div class="header">
+                <h1>새로운 할 일 추가하기</h1>
+            </div>
+            <div class="add">
+                <div class="title">
+                    <h2>새로운 할 일</h2>
+                </div>
+                <div class="content">
+                    <input type="text" placeholder="할 일을 입력해주세요">
+                </div>
+
+                <div class="cycle-area">
+                    <div class="title">
+                        <h2>주기 설정</h2>
+                    </div>
+                    <div class="content">
+                        <div class="ctrl">
+                            <div class="ctrl__button ctrl__button--decrement">&ndash;</div>
+                            <div class="ctrl__counter">
+                                <input class="ctrl__counter-input" maxlength="10" type="text" value="0">
+                                <div class="ctrl__counter-num">0</div>
+                            </div>
+                            <div class="ctrl__button ctrl__button--increment">+</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memo">
+                    <div class="title">
+                        <h2>메모</h2>
+                    </div>
+                    <div class="content">
+                        <input type="text" placeholder="간단한 메모를 입력해주세요">
+                    </div>
+                </div>
+
+                <div class="add-btn">
+                    <input type="button" value="+ 추가하기">
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="header">
+            <h1>전체 리스트 확인하기</h1>
+        </div>
+
+        <div class="todo-area">
+            <input type="text" class="txtb" placeholder="새로운 할 일 추가">
+            <div class="notcomp"></div>
+            <div class="comp"></div>
+        </div>
+
+        <div class="menu-area">
+            <div class="main">
+                <a href="index.html" class="tran"><img src="./image/tab_unchecked.png"></a>
+            </div>
+            <div class="list">
+                <a href="list.html" class="tran"><img src="./image/tab_list.png"></a>
+            </div>
+            <div class="data">
+                <a href="check.html" class="tran"><img src="./image/tab_undata.png"></a>
+            </div>
+            <div class="setting">
+                <a href="#" class="tran"><img src="./image/tab_unsetting.png"></a>
+            </div>
+        </div>
+
+        <div class="add-btn-area">
+            <img src="./image/add.png">
+        </div>
+
+        <!-- 리스트 체크 -->
+        <script src="./js/check.js"></script>
+
+        <!-- 주기 설정 컨트롤러 -->
+        <script src="./js/ctrl.js"></script>
+    </body>
+</html>
