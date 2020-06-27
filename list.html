@@ -15,9 +15,9 @@
         <script src="./js/tran.js"></script>
     </head>
     <body>
-        <div class="background-area"></div>
+        <div class="background-area" id="background-area"></div>
 
-        <div class="add-area">
+        <div class="add-area" id="add-area">
             <div class="header">
                 <h1>새로운 할 일 추가하기</h1>
             </div>
@@ -87,7 +87,7 @@
         </div>
 
         <div class="add-btn-area">
-            <img src="./image/add.png">
+            <img src="./image/add.png" onclick="view()">
         </div>
 
         <!-- 리스트 체크 -->
@@ -95,5 +95,15 @@
 
         <!-- 주기 설정 컨트롤러 -->
         <script src="./js/ctrl.js"></script>
+
+        <script>
+            function view() {
+                var bg = document.getElementById('background-area');
+                var add = document.getElementById('add-area');
+
+                bg.style.display = 'inline';
+                add.style.display = 'inline';
+            }
+        </script>
     </body>
 </html>
