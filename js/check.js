@@ -7,7 +7,7 @@ $(".txtb").on("keyup", function(e) {
     if(e.keyCode == 13 && $(".txtb").val() != "") {
         taskcnt++;      // 할 일 개수 증가
         console.log($(".tasknum").text());
-        document.querySelector(".tasknum").textContent = taskcnt;
+        // document.querySelector(".tasknum").textContent = taskcnt;
 
         var task = $("<div class='task'></div>");
         var cont = $("<span class='content'></span>");
@@ -15,8 +15,8 @@ $(".txtb").on("keyup", function(e) {
 
         cont.append($(".txtb").val());
 
-        console.log(comp / taskcnt);
-        setGaugeValue(gaugeElement, comp / taskcnt);
+        // console.log(comp / taskcnt);
+        // setGaugeValue(gaugeElement, comp / taskcnt);
 
         var img = $("<img src='./image/checked.png' class='check-icon icon-img' id='checked-icon' onclick=''><img src='./image/unchecked.png' class='uncheck-icon icon-img' id='uncheck' onclick=''>");
 
@@ -30,9 +30,9 @@ $(".txtb").on("keyup", function(e) {
                 checked.prop('checked', false);
             }
             
-            document.querySelector(".compnum").textContent = comp;
+            // document.querySelector(".compnum").textContent = comp;
 
-            setGaugeValue(gaugeElement, comp / taskcnt);
+            // setGaugeValue(gaugeElement, comp / taskcnt);
 
             var p = $(this).parent();
 
@@ -73,8 +73,8 @@ $(document).on("click", "#uncheck", function(e) {
     
     });
 
-    document.querySelector(".compnum").textContent = comp;
-    setGaugeValue(gaugeElement, comp / taskcnt);
+    // document.querySelector(".compnum").textContent = comp;
+    // setGaugeValue(gaugeElement, comp / taskcnt);
 
 });
 
@@ -97,7 +97,7 @@ $(document).on("click", "#checked-icon", function(e) {
     
     });
 
-    document.querySelector(".compnum").textContent = comp;
-    setGaugeValue(gaugeElement, comp / taskcnt);
+    // document.querySelector(".compnum").textContent = comp;
+    // setGaugeValue(gaugeElement, comp / taskcnt);
 
 });

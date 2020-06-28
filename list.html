@@ -15,18 +15,19 @@
         <script src="./js/tran.js"></script>
     </head>
     <body>
-        <div class="background-area"></div>
+        <div class="background-area" id="background-area"></div>
 
-        <div class="add-area">
+        <div class="add-area" id="add-area">
             <div class="header">
                 <h1>새로운 할 일 추가하기</h1>
+                <img src="image/cancel.png" class="cancel-btn" onclick="cancel()">
             </div>
             <div class="add">
                 <div class="title">
                     <h2>새로운 할 일</h2>
                 </div>
                 <div class="content">
-                    <input type="text" placeholder="할 일을 입력해주세요">
+                    <input type="text" class="txtb" placeholder="할 일을 입력해주세요">
                 </div>
 
                 <div class="cycle-area">
@@ -54,7 +55,7 @@
                     </div>
                 </div>
 
-                <div class="add-btn">
+                <div class="add-btn" id="addbtn" onclick="add()">
                     <input type="button" value="+ 추가하기">
                 </div>
                 
@@ -66,7 +67,7 @@
         </div>
 
         <div class="todo-area">
-            <input type="text" class="txtb" placeholder="새로운 할 일 추가">
+            <!--<input type="text" class="txtb" placeholder="새로운 할 일 추가">-->
             <div class="notcomp"></div>
             <div class="comp"></div>
         </div>
@@ -87,13 +88,31 @@
         </div>
 
         <div class="add-btn-area">
-            <img src="./image/add.png">
+            <img src="./image/add.png" onclick="view()">
         </div>
 
-        <!-- 리스트 체크 -->
-        <script src="./js/check.js"></script>
+        <!-- 리스트 추가 -->
+        <script src="./js/addlist.js"></script>
 
         <!-- 주기 설정 컨트롤러 -->
         <script src="./js/ctrl.js"></script>
+
+        <script>
+            function view() {
+                var bg = document.getElementById('background-area');
+                var add = document.getElementById('add-area');
+
+                bg.style.display = 'inline';
+                add.style.display = 'inline';
+            }
+
+            function cancel() {
+                var bg = document.getElementById('background-area');
+                var add = document.getElementById('add-area');
+
+                bg.style.display = 'none';
+                add.style.display = 'none';
+            }
+        </script>
     </body>
 </html>
