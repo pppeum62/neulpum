@@ -49,10 +49,20 @@ body {
     padding: 12px;
     background-color: unset;
     border-bottom: 0.5px solid #bcbcbc78;
+    position: relative;
+}
+
+.add-area .header .cancel-btn {
+    width: 10px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .add .title h2 {
     padding-left: 10px;
+    margin-bottom: 2px;
 }
 
 .add .content {
@@ -99,6 +109,10 @@ body {
     color: #fafafa;
     border-radius: 20px;
     padding: 10px 30px;
+}
+
+.add-btn input:focus {
+    outline: none;
 }
 
 /* add-btn-area */

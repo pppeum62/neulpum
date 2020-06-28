@@ -20,6 +20,7 @@
         <div class="add-area" id="add-area">
             <div class="header">
                 <h1>새로운 할 일 추가하기</h1>
+                <img src="image/cancel.png" class="cancel-btn" onclick="cancel()">
             </div>
             <div class="add">
                 <div class="title">
@@ -103,6 +104,14 @@
 
                 bg.style.display = 'inline';
                 add.style.display = 'inline';
+            }
+
+            function cancel() {
+                var bg = document.getElementById('background-area');
+                var add = document.getElementById('add-area');
+
+                bg.style.display = 'none';
+                add.style.display = 'none';
             }
         </script>
     </body>
