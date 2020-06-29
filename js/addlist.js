@@ -11,6 +11,7 @@ function add(e) {
     cont.append($(".txtb").val());
 
     var img = $("<img src='./image/checked.png' class='check-icon icon-img' id='checked-icon' onclick=''><img src='./image/unchecked.png' class='uncheck-icon icon-img' id='uncheck' onclick=''>");
+    var btnimg = $("<img src='./image/details.png' class='details-btn'>");
 
     var check = img.click(function() {
 
@@ -35,7 +36,7 @@ function add(e) {
         });
     });
 
-    task.append(chkbox, img, cont);
+    task.append(chkbox, img, cont, btnimg);
 
     $(".notcomp").append(task);
     $(".txtb").val("");

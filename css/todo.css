@@ -16,7 +16,7 @@
     background: none;
     padding: 10px;
     outline: none;
-    font-size: 15px;
+    /*font-size: 15px;*/
 }
 
 .task {
@@ -29,12 +29,19 @@
     padding: 5px;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .task i {
     float: right;
     margin-left: 20px;
     cursor: pointer;
+}
+
+.task .details-btn {
+    width: 15px;
+    position: absolute;
+    right: 10px;
 }
 
 .icon-img {

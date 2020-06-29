@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>늘품</title>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        
+        <link rel="stylesheet" href="./css/reset.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="./js/tran.js"></script>
+
+        <script>
+            function nextWin() {
+                location = "./index.html";
+            }
+        </script>
+        
+    </head>
+    <style>
+        body {
+            background: #ffb900;
+            opacity: 0.3;
+        }
+
+        .title {
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            top: 20%;
+            transform: translateX(-50%);
+        }
+
+        .content {
+            text-align: center;
+            width: 100%;
+            color: #fafafa;
+            font-size: 15px;
+            position: absolute;
+            top: 80%;
+        }
+    </style>
+    <body onLoad="setTimeout('nextWin()', 2000)">
+        <div class="title">
+            <img src="./image/title.png">
+        </div>
+        <div class="content">
+            늘품과 함께 작심<span class="running" id="running">삼</span>일 중입니다
+        </div>
+    </body>
+</html>
