@@ -179,7 +179,6 @@ body {
 .ctrl__counter {
     position: relative;
     width: 60%;
-    height: 15vh;
     color: #333C48;
     text-align: center;
     overflow: hidden;
@@ -207,8 +206,6 @@ body {
     outline: none;
     border: none;
     color: #333C48;
-    font-size: 30px;
-    line-height: 100px;
     text-align: center;
     opacity: 0;
     -webkit-transition: opacity 100ms ease-in;
@@ -218,11 +215,9 @@ body {
 .ctrl__counter-num {
     position: absolute;
     z-index: 1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    line-height: 100px;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
     opacity: 1;
     -webkit-transition: opacity 100ms ease-in;
     transition: opacity 100ms ease-in;
