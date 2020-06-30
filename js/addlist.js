@@ -2,6 +2,16 @@ var taskcnt = 0;
 var comp = 0;
 
 function add(e) {
+    if($(".txtb").val() == '') {
+        alert('할 일을 입력해주세요!');
+        
+        return;
+    }
+
+    if($("#cycle").val() == 0) {
+        var chk = confirm('주기를 0일로 선택할 시 반복 되지 않는 1회성 할 일로 등록됩니다.\n설정하신 주기가 0일이 맞습니까?');
+    }
+
     taskcnt++;      // 할 일 개수 증가
 
     var task = $("<div class='task'></div>");
