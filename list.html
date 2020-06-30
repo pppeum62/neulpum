@@ -23,42 +23,43 @@
                 <img src="image/cancel.png" class="cancel-btn" onclick="cancel()">
             </div>
             <div class="add">
-                <div class="title">
-                    <h2>새로운 할 일</h2>
-                </div>
-                <div class="content">
-                    <input type="text" class="txtb" placeholder="할 일을 입력해주세요">
-                </div>
-
-                <div class="cycle-area">
+                <form method="POST" action="list.php">
                     <div class="title">
-                        <h2>주기 설정</h2>
+                        <h2>새로운 할 일</h2>
                     </div>
                     <div class="content">
-                        <div class="ctrl">
-                            <div class="ctrl__button ctrl__button--decrement">&ndash;</div>
-                            <div class="ctrl__counter">
-                                <input class="ctrl__counter-input" maxlength="10" type="text" value="0">
-                                <div class="ctrl__counter-num">0</div>
+                        <input type="text" class="txtb" placeholder="할 일을 입력해주세요">
+                    </div>
+
+                    <div class="cycle-area">
+                        <div class="title">
+                            <h2>주기 설정</h2>
+                        </div>
+                        <div class="content">
+                            <div class="ctrl">
+                                <div class="ctrl__button ctrl__button--decrement">&ndash;</div>
+                                <div class="ctrl__counter">
+                                    <input class="ctrl__counter-input" id="cycle" maxlength="5" type="text" value="0" disabled>
+                                    <div class="ctrl__counter-num">0</div>
+                                </div>
+                                <div class="ctrl__button ctrl__button--increment">+</div>
                             </div>
-                            <div class="ctrl__button ctrl__button--increment">+</div>
                         </div>
                     </div>
-                </div>
 
-                <div class="memo">
-                    <div class="title">
-                        <h2>메모</h2>
+                    <div class="memo">
+                        <div class="title">
+                            <h2>메모</h2>
+                        </div>
+                        <div class="content">
+                            <input type="text" placeholder="간단한 메모를 입력해주세요">
+                        </div>
                     </div>
-                    <div class="content">
-                        <input type="text" placeholder="간단한 메모를 입력해주세요">
-                    </div>
-                </div>
 
-                <div class="add-btn" id="addbtn" onclick="add()">
-                    <input type="button" value="+ 추가하기">
-                </div>
-                
+                    <div class="add-btn" id="addbtn" onclick="add()">
+                        <input type="button" value="+ 추가하기">
+                    </div>
+                </form>
             </div>
         </div>
 
