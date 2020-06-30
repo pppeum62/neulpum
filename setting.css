@@ -1,0 +1,21 @@
+body {
+   padding:0px;
+   margin: 0px;
+}
+
+.header {
+    padding: 10px;
+    background-color: #ffb900;
+    text-align: center;
+}
+
+.mailToDev {
+    padding: 10px;
+    border-bottom: 0.5px solid #ffb900;
+}
+
+.login, .logout, .register {
+    padding: 10px;
+    border-bottom: 0.5px solid #ffb900;
+}
+
