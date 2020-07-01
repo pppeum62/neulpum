@@ -9,31 +9,24 @@
         
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="./css/login.css">
+        <link rel="stylesheet" href="./css/signUp.css">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script src="./js/tran.js"></script>
+        <script src="./js/logintran.js"></script>
         
     </head>
-    <style>
-        .login-area { position: absolute; top: 50%; transform: translateY(-50%); }
-        .login-area .login { text-align: center; }
-        .login-area .login input { box-sizing: border-box; width: 65vw; height: 6vh; border: none; background-color: #eee; margin: 3px 0; padding: 0 0 0 20px; border-radius: 20px; }
-        .login-area .login input:focus { outline: none; }
-        .login-area .login .reset { font-family: '맑은 고딕'; letter-spacing: -1px; }
-        .login-area .login .login-btn { margin-top: 20px; padding: unset; background-color: #ffb900; color: #fff; }
-        .login-area .login .login-btn:hover{background-color: #ebac00;}
-        .login-area .login-info { text-align: center; margin: 20px; }
-        .login-area .login-info li { position: relative; display: inline; cursor: pointer; }
-        .login-area .login-info li:hover { text-decoration: underline; }
-        .login-area .login-info li:before { content:''; width: 1px; height: 12px; background: #999; position: absolute; left: 0; top: 0; }
-        .login-area .login-info li:first-child:before{ width: 0; height: 0; }
-        .login-area .login-info li span { padding: 8px; }
-    </style>
     <body>
-        <div class="header">
-            <h1>로그인</h1>
+
+        <div class="menu">
+            <ul>
+                <li><div class="login-menu" onclick="login()">로그인</div></li>
+                <li><div class="signup-menu" onclick="sign()">회원가입</div></li>
+                <div class="line"></div>
+            </ul>
         </div>
 
         <div class="login-area">
@@ -45,12 +38,51 @@
                     <input type="button" value="로그인" class="login-btn">
                 </form>
             </div>
+
             <div class="login-info">
                 <ul>
                     <li><a href="#"><span>아이디 찾기</span></a></li>
                     <li><a href="#"><span>비밀번호 재설정</span></a></li>
-                    <li><a href="#"><span>회원가입</span></a></li>
+                    <li><a href="index.html"><span>메인화면</span></a></li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="signup-area">
+            <div class="signup">
+                <form method="POST" action="" onsubmit="">
+
+                    <!-- name-area start -->
+                    <div class="name">
+                        <input type="text" class="content" name="name" id="name" placeholder="이름 입력하기" required autocomplete="off" onchange="input_name()">
+                    </div>
+                    <!-- name-area end -->
+                    <!-- id-area start -->
+                    <div class="id">
+                        <div class="content">
+                            <input type="text" class="input-id" id="id" name="id" placeholder="아이디 입력하기" required autocomplete="off" onchange="input_id()">
+                            <a href="javascript:check_ID()" class="id-btn">확인</a>
+                            <!--<input type="button" class="id-btn" value="확인">-->
+                        </div>
+                    </div>
+                    <!-- id-area end -->
+
+                    <!--<span class="layer" name="id">아이디 입력하기</span>-->
+
+                    <!-- password-area start -->
+                    <div class="pw">
+                        <input type="password" class="reset content" name="pw" id="pw" placeholder="비밀번호 입력하기" required autocomplete="off" onchange="input_pw()">
+                    </div>
+                    <!-- password-area end -->
+
+                    <!-- password-check-area start -->
+                    <div class="pw-ck">
+                        <input type="password" class="reset content" name="pw-ck" id="pw_ck" placeholder="비밀번호 재입력하기" required autocomplete="off">
+                    </div>
+                    <!-- password-check-area end -->
+                    
+                    <input type="submit" class="signup-btn" onclick="check_password(); check_local();"; value="시작하기">
+                </form>
             </div>
         </div>
     </body>

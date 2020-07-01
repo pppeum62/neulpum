@@ -1,0 +1,120 @@
+/* login-area */
+.login-area {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.login-area .login {
+    text-align: center;
+}
+
+.login-area .login input {
+    box-sizing: border-box;
+    width: 65vw;
+    height: 6vh;
+    border: none;
+    background-color: #eee;
+    margin: 3px 0;
+    padding: 0 0 0 20px;
+    border-radius: 20px;
+}
+
+.login-area .login input:focus {
+    outline: none;
+}
+
+.login-area .login .reset {
+    font-family: '맑은 고딕';
+    letter-spacing: -1px;
+}
+
+.login-area .login .login-btn {
+    margin-top: 20px;
+    padding: unset;
+    background-color: #ffb900;
+    color: #fff;
+}
+
+.login-area .login-info {
+    text-align: center;
+    margin: 20px;
+}
+
+.login-area .login-info li {
+    position: relative;
+    display: inline;
+    cursor: pointer;
+}
+
+.login-area .login-info li:hover {
+    text-decoration: underline;
+}
+
+.login-area .login-info li:before {
+    content:'';
+    width: 1px;
+    height: 12px;
+    background: #999;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.login-area .login-info li:first-child:before{
+    width: 0;
+    height: 0;
+}
+
+.login-area .login-info li span {
+    padding: 8px;
+}
+
+
+
+/* menu */
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vh;
+    position: relative;
+}
+
+.menu div {
+    padding: 20px 20px 15px 20px;
+}
+
+.menu li {
+    display: inline-block;
+    cursor: pointer;
+}
+
+/*
+.menu .login-menu {
+    border-bottom: 2px solid #ffb900;
+}
+*/
+
+.menu .signup-menu {
+    border-bottom: 2px solid #fafafa;
+}
+
+.menu .line {
+    width:20%;
+    height:3px;
+    background: #ffb900;
+    padding: unset;
+    position: absolute;
+    bottom: 0;
+    left: 29%;
+    transition: 0.5s;
+}
+
+/*.menu li:nth-of-type(1):hover ~.line { transform:translateX(0%); }*/
+/*.menu li:nth-of-type(2):hover ~.line { transform:translateX(102%); }*/
+
+.signup-area {
+    opacity: 0;
+    display: none;
+}
