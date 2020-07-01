@@ -17,9 +17,37 @@
         <script src="./js/tran.js"></script>
         
     </head>
+    <style>
+        /* menu */
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15vh;
+        }
+
+        .menu div {
+            padding: 20px 20px 15px 20px;
+        }
+
+        .menu .login-menu {
+            border-bottom: 2px solid #fafafa;
+        }
+
+        .menu .signup-menu {
+            border-bottom: 2px solid #ffb900;
+        }
+    </style>
     <body>
+        <!--
         <div class="header">
             <h1>회원가입</h1>
+        </div>
+        -->
+
+        <div class="menu">
+            <a href="login.html"><div class="login-menu">로그인</div></a>
+            <div class="signup-menu">회원가입</div>
         </div>
 
         <div class="signup-area">
@@ -28,13 +56,13 @@
 
                     <!-- name-area start -->
                     <div class="name">
-                        <span class="title-span">이름</span>
+                        <!--<span class="title-span">이름</span>-->
                         <input type="text" class="content" name="name" id="name" placeholder="이름 입력하기" required autocomplete="off" onchange="input_name()">
                     </div>
                     <!-- name-area end -->
                     <!-- id-area start -->
                     <div class="id">
-                        <span class="title-span">아이디</span>
+                        <!--<span class="title-span">아이디</span>-->
                         <div class="content">
                             <input type="text" class="input-id" id="id" name="id" placeholder="아이디 입력하기" required autocomplete="off" onchange="input_id()">
                             <a href="javascript:check_ID()" class="id-btn">확인</a>
@@ -47,14 +75,14 @@
 
                     <!-- password-area start -->
                     <div class="pw">
-                        <span class="title-span">비밀번호</span>
+                        <!--<span class="title-span">비밀번호</span>-->
                         <input type="password" class="reset content" name="pw" id="pw" placeholder="비밀번호 입력하기" required autocomplete="off" onchange="input_pw()">
                     </div>
                     <!-- password-area end -->
 
                     <!-- password-check-area start -->
                     <div class="pw-ck">
-                        <span class="title-span">비밀번호 확인</span>
+                        <!--<span class="title-span">비밀번호 확인</span>-->
                         <input type="password" class="reset content" name="pw-ck" id="pw_ck" placeholder="비밀번호 재입력하기" required autocomplete="off">
                     </div>
                     <!-- password-check-area end -->
