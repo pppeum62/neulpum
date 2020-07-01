@@ -22,11 +22,13 @@
 
 .signup-area .signup .content { 
     box-sizing: border-box;
-    width: 45vw;
+    width: 65vw;
     height: 6vh;
     border: none;
-    background-color: #f4f4f4;
-    padding: 0 10px;
+    background-color: #eee;
+    margin: 3px 0;
+    padding: 0 0 0 20px;
+    border-radius: 20px;
 }
 
 
@@ -79,6 +81,7 @@
     border-top: 1px solid #fafafa;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .signup-area .signup .id .content .input-id {
@@ -92,6 +95,8 @@
     background-color: #e6e6e6;
     padding: 1px 6px;
     border-radius: 20px;
+    position: absolute;
+    right: 10px;
 }
 
 
@@ -145,10 +150,10 @@
 
 /* signup-btn */
 .signup-area .signup .signup-btn {
-    width: 70vw;
+    width: 65vw;
     height: 6vh;
     border: none;
-    margin: 70px 0 0 0;
+    margin: 20px 0 0 0;
     padding: 0 10px;
     border-radius: 20px;
     background-color: #ffb900;
