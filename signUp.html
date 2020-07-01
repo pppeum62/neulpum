@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>늘품</title>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="./css/signUp.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="./js/tran.js"></script>
+        
+    </head>
+    <body>
+        <div class="header">
+            <h1>회원가입</h1>
+        </div>
+
+        <div class="signup-area">
+            <div class="signup">
+                <form method="POST" action="" onsubmit="">
+
+                    <!-- name-area start -->
+                    <div class="name">
+                        <span class="title-span">이름</span>
+                        <input type="text" class="content" name="name" id="name" placeholder="이름 입력하기" required autocomplete="off" onchange="input_name()">
+                    </div>
+                    <!-- name-area end -->
+                    <!-- id-area start -->
+                    <div class="id">
+                        <span class="title-span">아이디</span>
+                        <div class="content">
+                            <input type="text" class="input-id" id="id" name="id" placeholder="아이디 입력하기" required autocomplete="off" onchange="input_id()">
+                            <a href="javascript:check_ID()" class="id-btn">확인</a>
+                            <!--<input type="button" class="id-btn" value="확인">-->
+                        </div>
+                    </div>
+                    <!-- id-area end -->
+
+                    <!--<span class="layer" name="id">아이디 입력하기</span>-->
+
+                    <!-- password-area start -->
+                    <div class="pw">
+                        <span class="title-span">비밀번호</span>
+                        <input type="password" class="reset content" name="pw" id="pw" placeholder="비밀번호 입력하기" required autocomplete="off" onchange="input_pw()">
+                    </div>
+                    <!-- password-area end -->
+
+                    <!-- password-check-area start -->
+                    <div class="pw-ck">
+                        <span class="title-span">비밀번호 확인</span>
+                        <input type="password" class="reset content" name="pw-ck" id="pw_ck" placeholder="비밀번호 재입력하기" required autocomplete="off">
+                    </div>
+                    <!-- password-check-area end -->
+                    
+                    <input type="submit" class="signup-btn" onclick="check_password(); check_local();"; value="시작하기">
+                </form>
+            </div>
+        </div>
+
+        <!-- id-check popup start -->
+        <!-- <div id="layer">
+            <a href="#" class="close">Close</a>
+            <div class="input-area">
+                <form method="POST" action="">
+                    <div class="input-box">
+                        <input type="text" name="id-check" class="id-check" id="id_check" onkeydown="checked=false;" placeholder="아이디를 입력하세요">
+                        <input type="button" class="check" value="확인">
+                    </div>
+                    <input type="button" value="아이디 사용하기" class="check-btn">
+                </form>
+            </div>
+        </div> -->
+        <!-- id-check popup end -->
+
+        <script type="text/javascript">
+            //layer popup
+            $(".layer").click(function(event) {
+                event.preventDefault();
+                //$("#layer").css("display", "block");
+                $("#layer").slideDown();
+            })
+
+            $("#layer .close").click(function(event){
+                event.preventDefault();
+
+                $("#layer").fadeOut("slow");
+            })
+        </script>
+
+    </body>
+</html>
