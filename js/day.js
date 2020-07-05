@@ -29,12 +29,15 @@ while(cnt < 7) {
 
 // 날짜 채우기
 for(var i = 0; i < 7; i++) {
-    day[i].textContent = d.getDate() - (6 - i);
+    var y = new Date(d.valueOf() - (24*(6-i)*60*60*1000));
+    day[i].textContent = y.getDate();
 }
 
+var t = new Date(d.valueOf() + (24*60*60*1000));
+
 // 내일 요일
-weekday[7].textContent = week[tweekday + 1];
+weekday[7].textContent = week[t.getDay()];
 // 내일 날짜
-day[7].textContent = d.getDate() + 1;
+day[7].textContent = t.getDate();
 
 console.log(today);
